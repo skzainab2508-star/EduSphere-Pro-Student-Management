@@ -1,0 +1,223 @@
+
+/* ===== EDUSPHERE PRO PREMIUM UPGRADE ===== */
+
+:root {
+  --p: #6c5ce7;
+  --dark: #201b46;
+  --bg: #f5f6fc;
+  --line: #e9eaf4;
+}
+
+body {
+  transition: background .3s ease, color .3s ease;
+}
+
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  backdrop-filter: blur(16px);
+  box-shadow: 0 5px 25px #201b4608;
+}
+
+.logo {
+  background: linear-gradient(110deg, #6754df, #b45ee8);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 85% 15%, #dcd5ff 0, transparent 32%),
+    linear-gradient(120deg, #fff 25%, #f0edff);
+}
+
+.hero-panel, .feature, .metric, .panel {
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.hero-panel:hover,
+.feature:hover,
+.metric:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 18px 45px #39307812;
+}
+
+.feature {
+  position: relative;
+  overflow: hidden;
+}
+
+.feature::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, #6754df, #c16de7, #5ba9ee);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .3s ease;
+}
+
+.feature:hover::before {
+  transform: scaleX(1);
+}
+
+.btn {
+  background: linear-gradient(115deg, #6754df, #8668ed);
+  box-shadow: 0 6px 18px #6754df30;
+}
+
+.btn:hover {
+  box-shadow: 0 10px 25px #6754df45;
+}
+
+.metric {
+  position: relative;
+  overflow: hidden;
+}
+
+.metric::after {
+  content: "";
+  position: absolute;
+  right: -20px;
+  top: -25px;
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background: #6754df0c;
+}
+
+.metric .m-icon {
+  display: inline-grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 13px;
+  background: #efedff;
+  margin-bottom: 12px;
+}
+
+.bar span {
+  transition: width .8s cubic-bezier(.2,.8,.2,1);
+}
+
+.sidebar {
+  position: sticky;
+  top: 76px;
+  height: calc(100vh - 76px);
+}
+
+.side-btn {
+  transition: all .2s ease;
+}
+
+.side-btn.active {
+  box-shadow: inset 3px 0 #6754df;
+}
+
+input, select {
+  transition: border-color .2s, box-shadow .2s;
+}
+
+input:focus {
+  transform: translateY(-1px);
+}
+
+.tag {
+  box-shadow: 0 3px 8px #25845a10;
+}
+
+#toast {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 9999;
+  max-width: calc(100vw - 40px);
+  padding: 15px 20px;
+  border-radius: 14px;
+  background: #201b46;
+  color: white;
+  box-shadow: 0 12px 35px #201b4630;
+  opacity: 0;
+  transform: translateY(15px);
+  pointer-events: none;
+  transition: .25s ease;
+}
+
+#toast.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+#themeToggle {
+  border: 1px solid var(--line);
+  background: white;
+  color: var(--dark);
+  border-radius: 11px;
+  padding: 10px 13px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+body.dark {
+  --bg: #111322;
+  --dark: #f0efff;
+  --muted: #a6abc3;
+  --line: #30334a;
+  background: var(--bg);
+  color: var(--dark);
+}
+
+body.dark .topbar,
+body.dark .sidebar,
+body.dark .panel,
+body.dark .metric,
+body.dark .feature,
+body.dark .hero-panel,
+body.dark .login-box,
+body.dark .btn-light {
+  background: #1b1e32;
+  color: var(--dark);
+  border-color: var(--line);
+}
+
+body.dark .hero {
+  background: radial-gradient(circle at 85% 15%, #332a5c, transparent 40%), #17192b;
+}
+
+body.dark .mini,
+body.dark .notice,
+body.dark .roles,
+body.dark th {
+  background: #252840;
+  color: #deddf4;
+}
+
+body.dark input,
+body.dark select {
+  background: #17192b;
+  color: red;
+  border-color: #3a3d57;
+}
+
+body.dark .role.active {
+  background: #38315f;
+  color: white;
+}
+
+body.dark td {
+  border-color: var(--line);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    transition-duration: .01ms !important;
+    animation-duration: .01ms !important;
+  }
+}

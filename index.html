@@ -1,0 +1,184 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduSphere | Student Management System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<nav class="navbar">
+    <a class="brand" href="#" onclick="showHome()">
+        <span class="brand-icon">E</span>
+        EduSphere<span class="dot">.</span>
+    </a>
+    <div class="nav-right">
+        <a href="#features">Features</a>
+        <button class="nav-login" onclick="showLogin('student')">Login ↗</button>
+    </div>
+</nav>
+
+<section id="home" class="hero">
+    <div class="hero-content">
+        <div class="eyebrow"><span></span> SMART CAMPUS • SMART FUTURE</div>
+        <h1>Education,<br>reimagined for<br><span>your future.</span></h1>
+        <p class="hero-desc">
+            One intelligent platform to manage students, track academic
+            progress, and make campus life simpler.
+        </p>
+        <div class="hero-buttons">
+            <button class="primary-btn" onclick="showLogin('student')">
+                Student Portal <span>→</span>
+            </button>
+            <button class="outline-btn" onclick="showLogin('teacher')">
+                Teacher Portal ↗
+            </button>
+        </div>
+        <div class="hero-note">
+            <span class="avatar-stack">S&nbsp; T</span>
+            <span>One platform. Every possibility.</span>
+        </div>
+    </div>
+
+    <div class="hero-art">
+        <div class="orb orb-one"></div>
+        <div class="orb orb-two"></div>
+        <div class="glass-card main-card">
+            <div class="mini-top"><span>✦ Academic overview</span><span>•••</span></div>
+            <div class="welcome">Welcome back 👋</div>
+            <div class="muted">Your campus at a glance</div>
+            <div class="metric-grid">
+                <div class="metric"><span>Students</span><strong>1,240</strong><small>Academic community</small></div>
+                <div class="metric"><span>Attendance</span><strong>94.8%</strong><small>Campus average</small></div>
+            </div>
+            <div class="progress-title"><span>Academic excellence</span><b>88%</b></div>
+            <div class="progress"><i></i></div>
+            <div class="card-bottom"><span class="check">✓</span> Learn. Track. Achieve.</div>
+        </div>
+        <div class="floating-card float-top">✦ &nbsp; Learn without limits</div>
+        <div class="floating-card float-bottom"><span class="green-dot"></span> Your future starts here</div>
+    </div>
+</section>
+
+<section id="features" class="features">
+    <div class="section-heading">
+        <span class="eyebrow">BUILT FOR BETTER LEARNING</span>
+        <h2>Everything you need.<br><span>All in one place.</span></h2>
+    </div>
+    <div class="feature-grid">
+        <article class="feature-card">
+            <div class="feature-icon purple">♙</div>
+            <h3>Student Portal</h3>
+            <p>View marks, attendance and your academic profile from one place.</p>
+            <button onclick="showLogin('student')">Enter student portal →</button>
+        </article>
+        <article class="feature-card">
+            <div class="feature-icon blue">▤</div>
+            <h3>Teacher Portal</h3>
+            <p>Manage student records, update marks and track attendance.</p>
+            <button onclick="showLogin('teacher')">Enter teacher portal →</button>
+        </article>
+        <article class="feature-card">
+            <div class="feature-icon green">↗</div>
+            <h3>Progress Tracking</h3>
+            <p>Understand performance through clear academic summaries.</p>
+            <button onclick="showLogin('student')">Explore portal →</button>
+        </article>
+    </div>
+</section>
+
+<section id="loginPage" class="login-section hidden">
+    <div class="login-side">
+        <button class="back-btn" onclick="showHome()">← Back to home</button>
+        <div class="login-brand">EduSphere<span class="dot">.</span></div>
+        <div class="login-message">
+            <div class="eyebrow">YOUR CAMPUS, CONNECTED</div>
+            <h2>Small steps today.<br><span>Big achievements tomorrow.</span></h2>
+            <p>Sign in to continue your learning journey.</p>
+        </div>
+        <div class="side-footer">Learn • Grow • Achieve</div>
+    </div>
+
+    <div class="login-main">
+        <div class="login-box">
+            <div class="login-symbol">✦</div>
+            <span class="eyebrow">WELCOME TO EDUSPHERE</span>
+            <h2>Let's get you in.</h2>
+            <p class="muted">Choose your portal to continue.</p>
+
+            <div class="role-tabs">
+                <button id="studentTab" class="role-tab active" onclick="chooseRole('student')">♙ Student</button>
+                <button id="teacherTab" class="role-tab" onclick="chooseRole('teacher')">▤ Teacher</button>
+            </div>
+
+            <form id="loginForm">
+                <label for="username">Username</label>
+                <input id="username" name="username" placeholder="Enter your username" required>
+
+                <label for="password">Password</label>
+                <input id="password" name="password" type="password" placeholder="Enter your password" required>
+
+                <p id="loginError" class="error-message"></p>
+                <button class="primary-btn submit-btn" type="submit">Sign in securely <span>→</span></button>
+            </form>
+            <p class="demo-note">Demo access: student / student123<br>Teacher: teacher / teacher123</p>
+        </div>
+    </div>
+</section>
+
+<section id="dashboard" class="dashboard hidden">
+    <div class="dash-top">
+        <a class="brand" href="#" onclick="showHome()"><span class="brand-icon">E</span> EduSphere.</a>
+        <div><span id="roleLabel" class="role-badge">Student Portal</span>
+        <button class="outline-btn small-btn" onclick="logout()">Log out ↗</button></div>
+    </div>
+    <div class="dash-welcome">
+        <div><span class="eyebrow">YOUR PERSONAL SPACE</span>
+        <h1 id="dashTitle">Welcome back!</h1>
+        <p id="dashSubtitle">Here is your academic overview.</p></div>
+        <div class="dash-mark">✦</div>
+    </div>
+    <div id="studentView" class="dash-grid">
+        <article class="dash-card"><span>Academic marks</span><strong>—</strong><p>Marks will appear here when configured.</p></article>
+        <article class="dash-card"><span>Attendance</span><strong>—</strong><p>Your attendance record.</p></article>
+        <article class="dash-card"><span>Next step</span><strong>Learn</strong><p>Keep learning and growing.</p></article>
+    </div>
+    <div id="teacherView" class="hidden">
+        <div class="dash-grid">
+            <article class="dash-card"><span>Total students</span><strong id="dashTotal">0</strong><p>Current student records</p></article>
+            <article class="dash-card"><span>Average marks</span><strong id="dashAverage">0</strong><p>Out of 100</p></article>
+            <article class="dash-card"><span>Average attendance</span><strong id="dashAttendance">—</strong><p>Across student records</p></article>
+        </div>
+        <div class="dash-card student-admin">
+            <h2>Student Management</h2>
+            <p>Use the form below to add, edit, search and delete student records.</p>
+            <form id="studentForm">
+                <input type="hidden" id="studentId">
+                <div class="form-grid">
+                    <label>Full name<input id="name" required></label>
+                    <label>Roll number<input id="roll" required></label>
+                    <label>Class / Division<input id="studentClass" required></label>
+                    <label>Email<input id="email" type="email"></label>
+                    <label>Marks / 100<input id="marks" type="number" min="0" max="100" value="0" required></label>
+                    <label>Attendance %<input id="att" type="number" min="0" max="100" value="100" required></label>
+                </div>
+                <div class="hero-buttons">
+                    <button class="primary-btn" id="saveBtn" type="submit">＋ Add student</button>
+                    <button class="outline-btn hidden" id="cancelBtn" type="button" onclick="resetForm()">Cancel edit</button>
+                </div>
+            </form>
+            <p id="message" role="status"></p>
+            <input id="search" class="search-input" placeholder="Search by student name or roll number">
+            <div class="table-wrap"><table>
+                <thead><tr><th>Roll</th><th>Name</th><th>Class</th><th>Email</th><th>Marks</th><th>Attendance</th><th>Actions</th></tr></thead>
+                <tbody id="studentRows"><tr><td colspan="7">Loading...</td></tr></tbody>
+            </table></div>
+        </div>
+    </div>
+    <footer class="dash-footer">EduSphere • Student Management System</footer>
+</section>
+
+<script src="script.js"></script>
+</body>
+</html>
